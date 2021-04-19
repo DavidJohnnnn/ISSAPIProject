@@ -1,0 +1,39 @@
+body {  /* Tag Selector */
+  background-color: #eeeeee;  /* Background of website */
+  text-align: center;  /* Aligning all text to the left unless specified  except where necessary */
+  font-family: 'Work Sans', sans-serif;
+  margin: auto;
+  max-width: 1440px;
+}
+
+.bottomBox {
+  margin-top: 100px;
+  vertical-align: bottom;
+  color: #eeeeee;
+}
+
+.bottomDiv {
+  padding: 3% 8%;  /* top/bottom left/right */
+  margin: 0;
+  height: auto;
+  background-color: #222831;
+  font-size: 1rem;  /* (18px font-size / 2560px width */
+  text-decoration: none;
+}
+
+.bottomDiv {
+  text-align: right;
+  color: #eeeeee;
+}
+
+.bottomDiv .col-sm-2 {
+  color: #eeeeee;
+}
+
+.copyrightText {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  color: #eeeeee;
+  font-size: 1rem;
+  text-align: left;
+}

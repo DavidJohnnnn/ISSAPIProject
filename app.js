@@ -12,12 +12,11 @@ app.set('view engine', 'ejs');  // Now using EJS to help render the application.
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended : true}));
 
-app.get("/", function (req, res) {
-  console.log(variables.GeocodeAPIKey, variables.googleAPIKey);
-  res.sendFile(__dirname + "/index.html");
-});
+app.get("/", positionOfTheISS);
 
-app.post("/", function (req, res) {
+app.post("/", positionOfTheISS);
+
+function positionOfTheISS (req, res) {
   https.get("https://api.wheretheiss.at/v1/satellites/25544", function (response) { // First make an https request to the Where is the ISS API.
     console.log(response.statusCode);
     if (response.statusCode === 200) {  // If the request was successful.
@@ -44,7 +43,7 @@ app.post("/", function (req, res) {
               res.render('index', {lat: latitude, long: longitude, ctry: country, mapLink: mapURL});
             });
           } else {
-            console.log("Error: the Kanye api did not provide the information properly");
+            console.log("Error: the embedded Google api did not provide the information properly");
           }
         });
 
@@ -58,8 +57,7 @@ app.post("/", function (req, res) {
       console.log("Error: the ISS api did not provide the information properly");
     }
   });
-});
-
+}
 
 
 
