@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>The current latitude and longitude of the ISS is:</h2>
+    <p>Latitude: <%= lat %></p>
+    <p>Longitude: <%= long %></p>
+    <p><%=lat%>, <%=long%> </p>
+    <p>Country: <%= ctry %></p>
+    <iframe
+      width="1200"
+      height="900"
+      style="border:0"
+      loading="lazy"
+      allowfullscreen
+      src=<%=mapLink%>>
+    </iframe>
+
+    </form>
+  </body>
+</html>
