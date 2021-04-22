@@ -18,7 +18,7 @@
         <div class="card">
           <div class="card-body">
             <h3>The current latitude and longitude of the ISS is:</h3>
-            <h4>Latitude: <%= lat %> , Longitude: <%= long %></h4>
+            <h4>Latitude: <%= Math.round(lat * 1000) / 1000 %> , Longitude: <%= Math.round(long * 1000) / 1000 %></h4>
           </div>
         </div>
 
@@ -34,6 +34,33 @@
           allowfullscreen
           src=<%=mapLink%>>
         </iframe>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>Previous latitudes and Longitudes</h3>
+
+        <br>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm border bg-light">Latitude</div>
+            <div class="col-sm border bg-light">Longitude</div>
+            <div class="col-sm"></div>
+          </div>
+          <% for (i = 0; i < ISSCoordinates.length; i++) { %>
+          <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm border bg-light"><%=Math.round(ISSCoordinates[i][0] * 1000) / 1000%></div>
+            <div class="col-sm border bg-light"><%=Math.round(ISSCoordinates[i][1] * 1000) / 1000%></div>
+            <div class="col-sm"></div>
+          </div>
+          <% } %>
+        </div>
+        <a href="https://www.google.com/maps/dir/33.93729,-106.85761/33.91629,-106.866761/33.98729,-106.85861//@33.8896471,-106.8539567,11z"> LINK </a>
+
       </form>
     </div>
 
