@@ -12,56 +12,23 @@
   <body>
     <div class="container">
       <form action="/" method="post">
+        <br>
+        <br>
 
         <h1>Where in the world is the ISS??</h1>
 
-        <div class="card">
-          <div class="card-body">
-            <h3>The current latitude and longitude of the ISS is:</h3>
-            <h4>Latitude: <%= Math.round(lat * 1000) / 1000 %> , Longitude: <%= Math.round(long * 1000) / 1000 %></h4>
-          </div>
-        </div>
-
         <br />
-        <button type="submit" class="btn btn-secondary btn-lg">Refresh!</button>
-        <br>
-        <br>
-        <iframe
-          width="1200"
-          height="600"
-          style="border:0;"
-          loading="lazy"
-          allowfullscreen
-          src=<%=mapLink%>>
-        </iframe>
-
+        <button type="submit" class="btn btn-secondary btn-lg">Current Location</button>
         <br>
         <br>
         <br>
-        <br>
-        <h3>Previous latitudes and Longitudes</h3>
-
-        <br>
-
-        <div class="container">
-          <div class="row">
-            <div class="col-sm"></div>
-            <div class="col-sm border bg-light">Latitude</div>
-            <div class="col-sm border bg-light">Longitude</div>
-            <div class="col-sm"></div>
-          </div>
-          <% for (i = 0; i < ISSCoordinates.length; i++) { %>
-          <div class="row">
-            <div class="col-sm"></div>
-            <div class="col-sm border bg-light"><%=Math.round(ISSCoordinates[i][0] * 1000) / 1000%></div>
-            <div class="col-sm border bg-light"><%=Math.round(ISSCoordinates[i][1] * 1000) / 1000%></div>
-            <div class="col-sm"></div>
-          </div>
-          <% } %>
-        </div>
+        <img
+        src="Images/2048px-ISS-56_International_Space_Station_fly-around_(05).jpg"
+        width="1300"
+        height="650"
+        alt="International Space Station">
         <br>
         <br>
-        <a href="<%=ISSmultipointURL%>" target="_blank"> See the points on this table mapped out here </a>
 
       </form>
     </div>
