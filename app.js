@@ -19,36 +19,11 @@ app.get("/", function (req, res) {
   res.render("index");
 });
 
-app.get("/current_position", function (req, res) {
-  coordinates = [];
-  https.get("https://api.wheretheiss.at/v1/satellites/25544", function (response) { // First make an https request to the Where is the ISS API.
-    console.log(response.statusCode);
-    if (response.statusCode === 200) {  // If the request was successful.
-      response.on("data", function (data) {
-        const apiDataISS = JSON.parse(data), latitude = apiDataISS.latitude, longitude = apiDataISS.longitude;
-        coordinates.push([latitude, longitude]);
-
-        let mapURL = "https://www.google.com/maps/embed/v1/place?key=" + variables.googleAPIKey + "&zoom=4&q=" + latitude + "%2C" + longitude; // replace variables.googleAPIKey with your own Google API key.
-        let multipointURL = "https://www.google.com/maps/dir/";
-
-        for (let i = 0; i < coordinates.length; i++) {
-          if (i === coordinates.length - 1) {
-            multipointURL = multipointURL + coordinates[i][0] + "," + coordinates[i][1] + "//@" + coordinates[i][0] + "," + coordinates[i][1] + ",2z";
-          } else {
-            multipointURL = multipointURL + coordinates[i][0] + "," + coordinates[i][1] + "/";
-          }
-        }
-        res.render('ISSPosition', {lat: latitude, long: longitude, mapLink: mapURL, ISSCoordinates: coordinates, ISSmultipointURL: multipointURL});
-      });
-    } else {
-      console.log("Error: the ISS api did not provide the information properly");
-    }
-  });
-});
+app.get("/current_position", positionOfTheISS);
 
 app.post("/", function (req, res) {
+  coordinates = [];
   res.redirect("/current_position");
-  console.log("checked");
 });
 
 app.post("/current_position", positionOfTheISS);
