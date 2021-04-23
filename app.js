@@ -2,7 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
-const variables = {googleAPIKey: "AIzaSyBB4X6Xju0MAR2PYPM0iZqXyc3W_FV12pc"};
+const variables = {googleAPIKey: "AIzaSyBB4X6Xju0MAR2PYPM0iZqXyc3W_FV12pc"};  // This will only work on the Heroku application URL.
 
 const https = require("https");
 
